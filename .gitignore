@@ -1,0 +1,13 @@
+# Node / temp
+node_modules/
+.DS_Store
+Thumbs.db
+
+# OS
+*.log
+
+# VS Code
+.vscode/
+
+# OneDrive temp
+~$*

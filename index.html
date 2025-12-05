@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolución de los Microprocesadores</title>
+  <style>
+    body {
+      background-color: #000000; /* Fondo negro solicitado */
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #fff;
+      text-transform: uppercase; /* Títulos en mayúsculas */
+    }
+    .boton {
+      background-color: #F8C8DC; /* color por defecto (se sobrescribe con clases) */
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+    .boton:hover {
+      transform: scale(1.1);
+    }
+    .contenido {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+    .models-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-top: 8px;
+    }
+    .model {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .chip-svg {
+      width: 72px;
+      height: 54px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 6px;
+    }
+    .info-img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .info-img svg {
+      width: 240px;
+      height: auto;
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px;
+      padding: 8px;
+    }
+    .info-card {
+      margin-top: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #ffffff11;
+      padding: 12px;
+      border-radius: 10px;
+      max-width: 420px;
+      color: #fff;
+      text-align: left;
+    }
+    .info-card h2 { margin: 6px 0 8px 0; }
+    .models-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      width: 100%;
+    }
+    /* Clases de colores para botones */
+    .btn-red { background:#e74c3c; color:#fff; }
+    .btn-blue { background:#3498db; color:#fff; }
+    .btn-pastel-pink { background:#F8C8DC; color:#000; }
+    .btn-lilac { background:#C8A2C8; color:#000; }
+    .btn-celeste { background:#00bfff; color:#000; }
+    .btn-purple { background:#8e44ad; color:#fff; }
+    .btn-green { background:#2ecc71; color:#000; }
+    .btn-sky { background:#87CEFA; color:#000; }
+    .btn-gray { background:#95a5a6; color:#000; }
+    .btn-darkblue { background:#2980b9; color:#fff; }
+    .btn-pearl { background:#f3f1ec; color:#000; }
+  </style>
+</head>
+<body>
+  <h1>🌐 Evolución de los Microprocesadores</h1>
+
+  <div style="margin-top:10px;">
+    <button class="boton btn-pastel-pink" onclick="mostrarInfo(this)">Información general</button>
+    <button class="boton btn-gray" onclick="limpiarInfo(this)">Limpiar</button>
+  </div>
+
+  <div id="models-container" class="models-container">
+    <div>
+      <h2>Años 1980</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">8086</text>
+          </svg>
+          <button class="boton btn-red" onclick="mostrarIntel('8086', this)">Intel 8086</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">80286</text>
+          </svg>
+          <button class="boton btn-blue" onclick="mostrarIntel('80286', this)">Intel 80286</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">80386</text>
+          </svg>
+          <button class="boton btn-pastel-pink" onclick="mostrarIntel('80386', this)">Intel 80386</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">80486</text>
+          </svg>
+          <button class="boton btn-lilac" onclick="mostrarIntel('80486', this)">Intel 80486</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Años 1990</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="11" fill="#fff" text-anchor="middle" font-family="Arial">Pentium</text>
+          </svg>
+          <button class="boton btn-celeste" onclick="mostrarIntel('pentium', this)">Pentium (P5)</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="11" fill="#fff" text-anchor="middle" font-family="Arial">Pentium II</text>
+          </svg>
+          <button class="boton btn-purple" onclick="mostrarIntel('pentium-ii', this)">Pentium II</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2d2d2d" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#111"/>
+            <text x="60" y="50" font-size="11" fill="#fff" text-anchor="middle" font-family="Arial">Pentium III</text>
+          </svg>
+          <button class="boton btn-green" onclick="mostrarIntel('pentium-iii', this)">Pentium III</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Intel Core i3</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3b3b3b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0f0f0f"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i3-10100</text>
+          </svg>
+          <button class="boton btn-sky" onclick="mostrarIntel('i3-10100', this)">i3-10100</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3b3b3b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0f0f0f"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i3-12100</text>
+          </svg>
+          <button class="boton btn-gray" onclick="mostrarIntel('i3-12100', this)">i3-12100</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3b3b3b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0f0f0f"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i3-13100</text>
+          </svg>
+          <button class="boton btn-darkblue" onclick="mostrarIntel('i3-13100', this)">i3-13100</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Intel Core i7</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2b2b2b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#000"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i7-12700K</text>
+          </svg>
+          <button class="boton btn-purple" onclick="mostrarIntel('i7-12700K', this)">i7-12700K</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2b2b2b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#000"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i7-13700K</text>
+          </svg>
+          <button class="boton btn-lilac" onclick="mostrarIntel('i7-13700K', this)">i7-13700K</button>
+        </div>
+      </div>
+    
+    <div>
+      <h2>Intel Core i5</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3a2b2f" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0a0a0a"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i5-11400</text>
+          </svg>
+          <button class="boton btn-pastel-pink" onclick="mostrarIntel('i5-11400', this)">i5-11400</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3a2b2f" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0a0a0a"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i5-12400</text>
+          </svg>
+          <button class="boton btn-pastel-pink" onclick="mostrarIntel('i5-12400', this)">i5-12400</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#3a2b2f" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#0a0a0a"/>
+            <text x="60" y="50" font-size="12" fill="#fff" text-anchor="middle" font-family="Arial">i5-13600K</text>
+          </svg>
+          <button class="boton btn-pastel-pink" onclick="mostrarIntel('i5-13600K', this)">i5-13600K</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Intel Core i9</h2>
+      <div class="models-row">
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2b2b2b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#000"/>
+            <text x="60" y="50" font-size="11" fill="#fff" text-anchor="middle" font-family="Arial">i9-12900K</text>
+          </svg>
+          <button class="boton btn-pearl" onclick="mostrarIntel('i9-12900K', this)">i9-12900K</button>
+        </div>
+        <div class="model">
+          <svg class="chip-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="108" height="78" rx="8" fill="#2b2b2b" stroke="#ffffff33"/>
+            <rect x="18" y="18" width="84" height="54" rx="4" fill="#000"/>
+            <text x="60" y="50" font-size="11" fill="#fff" text-anchor="middle" font-family="Arial">i9-13900K</text>
+          </svg>
+          <button class="boton btn-pearl" onclick="mostrarIntel('i9-13900K', this)">i9-13900K</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  
+    <div id="info" class="contenido"></div>
+
+  <script>
+    const intelData = {
+      '8086': {
+        name: 'Intel 8086',
+        gen: 'Arquitectura x86 (finales 1970s / uso en 1980s)',
+        cores: '1 núcleo / 16-bit',
+        base: '3–10 MHz (según versión)',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1978',
+        note: 'CPU que inició la arquitectura x86; base histórica para los 80s.'
+      },
+      '80286': {
+        name: 'Intel 80286',
+        gen: '286 (1980s)',
+        cores: '1 núcleo / 16-bit (modo protegido)',
+        base: '6–12.5 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1982',
+        note: 'Introdujo el modo protegido y mejor gestión de memoria.'
+      },
+      '80386': {
+        name: 'Intel 80386',
+        gen: '386 (1980s)',
+        cores: '1 núcleo / 32-bit',
+        base: '16–40 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1985',
+        note: 'Primera CPU x86 de 32-bit; soporte para multitarea y memoria virtual.'
+      },
+      '80486': {
+        name: 'Intel 80486',
+        gen: '486 (finales 1980s)',
+        cores: '1 núcleo / 32-bit con FPU integrada',
+        base: '20–100 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1989',
+        note: 'FPU y caché integradas, gran salto en rendimiento por ciclo.'
+      },
+      'pentium': {
+        name: 'Intel Pentium (P5)',
+        gen: 'Pentium (1990s)',
+        cores: '1 núcleo (superescalar)',
+        base: '60–300 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1993',
+        note: 'Arquitectura superescalar, mejora notable en rendimiento de punto flotante.'
+      },
+      'pentium-ii': {
+        name: 'Intel Pentium II',
+        gen: 'Pentium II (1990s)',
+        cores: '1 núcleo',
+        base: '233–450 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1997',
+        note: 'Mejoras en multimedia (MMX) y empaquetado SECC para desktop.'
+      },
+      'pentium-iii': {
+        name: 'Intel Pentium III',
+        gen: 'Pentium III (finales 1990s)',
+        cores: '1 núcleo',
+        base: '450–1400 MHz',
+        turbo: 'N/A',
+        tdp: 'N/A',
+        release: '1999',
+        note: 'Introdujo instrucciones SSE y aumentó frecuencias para cargas multimedia.'
+      },
+      'i5-11400': {
+        name: 'Intel Core i5-11400',
+        gen: 'Rocket Lake (11ª)',
+        cores: '6 núcleos / 12 hilos',
+        base: '2.6 GHz',
+        turbo: '4.4 GHz',
+        tdp: '65 W',
+        release: '2021',
+        note: 'Buena opción de entrada para sobremesa con rendimiento equilibrado.'
+      },
+      'i5-12400': {
+        name: 'Intel Core i5-12400',
+        gen: 'Alder Lake (12ª)',
+        cores: '6 núcleos (P) / 12 hilos',
+        base: '~2.5 GHz',
+        turbo: 'hasta 4.4 GHz',
+        tdp: '65 W',
+        release: '2022',
+        note: 'Muy buena relación precio/rendimiento en su generación.'
+      },
+      'i5-13600K': {
+        name: 'Intel Core i5-13600K',
+        gen: 'Raptor Lake (13ª)',
+        cores: '14 núcleos (6P+8E) / 20 hilos',
+        base: '~3.5 GHz',
+        turbo: 'hasta 5.1 GHz',
+        tdp: '125 W (PL2 alto en modo turbo)',
+        release: '2023',
+        note: 'Alto rendimiento en juegos y tareas híbridas; requiere buena refrigeración.'
+      },
+      'i3-10100': {
+        name: 'Intel Core i3-10100',
+        gen: 'Comet Lake (10ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.6 GHz',
+        turbo: '4.3 GHz',
+        tdp: '65 W',
+        release: '2020',
+        note: 'Buena opción de entrada para tareas diarias y ofimática.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#1e2b2b" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#071212"/>
+            <text x="150" y="110" font-size="20" fill="#fff" text-anchor="middle" font-family="Arial">i3-10100</text>
+          </svg>
+        `
+      },
+      'i3-12100': {
+        name: 'Intel Core i3-12100', 
+        imgen: "https://i.pinimg.com/736x/c1/38/ad/c138ad87230eaba8b70d714335e5187f.jpg",
+        gen: 'Alder Lake (12ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.3 GHz',
+        turbo: '4.3 GHz',
+        tdp: '60 W',
+        release: '2022',
+        note: 'Excelente rendimiento por núcleo para su categoría y precio.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#16323a" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#071316"/>
+            <text x="150" y="110" font-size="20" fill="#fff" text-anchor="middle" font-family="Arial">i3-12100</text>
+          </svg>
+        `
+      },
+      'i3-13100': {
+        name: 'Intel Core i3-13100',
+        gen: 'Raptor Lake (13ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.4 GHz',
+        turbo: '4.5 GHz',
+        tdp: '60 W',
+        release: '2023',
+        note: 'Rendimiento sólido en tareas mono-hilo y eficiencia energética.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#243239" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#071316"/>
+            <text x="150" y="110" font-size="20" fill="#fff" text-anchor="middle" font-family="Arial">i3-13100</text>
+          </svg>
+        `
+      },
+      'i3-10100': {
+        name: 'Intel Core i3-10100',
+        gen: 'Comet Lake (10ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.6 GHz',
+        turbo: '4.3 GHz',
+        tdp: '65 W',
+        release: '2020',
+        note: 'Buena opción de entrada para tareas diarias y ofimática.'
+      },
+      'i3-12100': {
+        name: 'Intel Core i3-12100',
+        gen: 'Alder Lake (12ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.3 GHz',
+        turbo: '4.3 GHz',
+        tdp: '60 W',
+        release: '2022',
+        note: 'Excelente rendimiento por núcleo para su categoría y precio.'
+      },
+      'i3-13100': {
+        name: 'Intel Core i3-13100',
+        gen: 'Raptor Lake (13ª)',
+        cores: '4 núcleos / 8 hilos',
+        base: '3.4 GHz',
+        turbo: '4.5 GHz',
+        tdp: '60 W',
+        release: '2023',
+        note: 'Rendimiento sólido en tareas mono-hilo y eficiencia energética.'
+      },
+      'i7-12700K': {
+        name: 'Intel Core i7-12700K',
+        gen: 'Alder Lake (12ª)',
+        cores: '12 núcleos (8P+4E) / 20 hilos',
+        base: '~3.6 GHz',
+        turbo: 'hasta 5.0 GHz',
+        tdp: '125 W',
+        release: '2021',
+        note: 'Muy adecuado para creadoras/es de contenido y jugadores exigentes.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#1b2430" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#02050a"/>
+            <text x="150" y="110" font-size="20" fill="#fff" text-anchor="middle" font-family="Arial">i7-12700K</text>
+          </svg>
+        `
+      },
+      'i7-13700K': {
+        name: 'Intel Core i7-13700K',
+        gen: 'Raptor Lake (13ª)',
+        cores: '16 núcleos (8P+8E) / 24 hilos',
+        base: '~3.4 GHz',
+        turbo: 'hasta 5.4 GHz',
+        tdp: '125 W',
+        release: '2023',
+        note: 'Excelente rendimiento multinúcleo y buen equilibrio para gaming/profesional.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#151820" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#000"/>
+            <text x="150" y="110" font-size="20" fill="#fff" text-anchor="middle" font-family="Arial">i7-13700K</text>
+          </svg>
+        `
+      }
+      ,
+      'i9-12900K': {
+        name: 'Intel Core i9-12900K',
+        gen: 'Alder Lake (12ª)',
+        cores: '16 núcleos (8P+8E) / 24 hilos',
+        base: '~3.2 GHz',
+        turbo: 'hasta 5.2 GHz',
+        tdp: '125 W',
+        release: '2021',
+        note: 'Alto rendimiento para gaming y cargas profesionales; requiere buena refrigeración.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#111217" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#000"/>
+            <text x="150" y="110" font-size="18" fill="#fff" text-anchor="middle" font-family="Arial">i9-12900K</text>
+          </svg>
+        `
+      },
+      'i9-13900K': {
+        name: 'Intel Core i9-13900K',
+        gen: 'Raptor Lake (13ª)',
+        cores: '24 núcleos (8P+16E) / 32 hilos',
+        base: '~3.0 GHz',
+        turbo: 'hasta 5.8 GHz',
+        tdp: '125 W',
+        release: '2022',
+        note: 'Rendimiento extremo en single y multi-hilo; recomendado para estaciones de trabajo y gaming tope de gama.',
+        svg: `
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="280" height="180" rx="14" fill="#0f1215" stroke="#ffffff22"/>
+            <rect x="36" y="36" width="228" height="128" rx="8" fill="#000"/>
+            <text x="150" y="110" font-size="18" fill="#fff" text-anchor="middle" font-family="Arial">i9-13900K</text>
+          </svg>
+        `
+      }
+    };
+
+    function mostrarInfo(btn) {
+      const html = `
+        <h2>DE LOS INICIOS A LA ACTUALIDAD</h2>
+        <p>Los microprocesadores nacieron en los años 70 con el Intel 4004,
+        un chip de 4 bits que marcó el inicio de la era digital.</p>
+        <p>En las décadas siguientes se pasó a arquitecturas de 8, 16 y 32 bits,
+        y más tarde a diseños multinúcleo que dominan el mercado actual.</p>
+        <p>Hoy los diseños se enfocan en eficiencia energética, integración de
+        aceleradores (GPU/IA) y mayor paralelismo para cargas modernas.</p>
+      `;
+
+      if (btn) {
+        // crear/actualizar tarjeta justo debajo del botón
+        let parent = btn.parentElement; // el contenedor inmediato donde está el botón
+        if (!parent) parent = document.body;
+        let card = parent.querySelector('.info-card');
+        if (!card) {
+          card = document.createElement('div');
+          card.className = 'info-card';
+          parent.appendChild(card);
+        }
+        card.innerHTML = html;
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        // comportamiento antiguo: mostrar en panel fijo #info
+        document.getElementById('info').innerHTML = html;
+      }
+    }
+
+    function mostrarIntel(model, btn) {
+      const data = intelData[model];
+      if (!data) {
+        if (btn) {
+          // mostrar mensaje breve debajo del botón
+          let parent = btn.closest('.model');
+          if (!parent) return;
+          let card = parent.querySelector('.info-card');
+          if (!card) {
+            card = document.createElement('div');
+            card.className = 'info-card';
+            parent.appendChild(card);
+          }
+          card.innerHTML = `<p>Información no disponible para ${model}</p>`;
+        } else {
+          const info = document.getElementById('info');
+          info.innerHTML = `<p>Información no disponible para ${model}</p>`;
+        }
+        return;
+      }
+
+      const imgHtml = data.svg ? `<div class="info-img">${data.svg}</div>` : '';
+      const html = `
+        ${imgHtml}
+        <h2>${data.name}</h2>
+        <p><strong>Generación:</strong> ${data.gen}</p>
+        <p><strong>Núcleos / Hilos:</strong> ${data.cores}</p>
+        <p><strong>Frecuencia base / Turbo:</strong> ${data.base} / ${data.turbo}</p>
+        <p><strong>TDP:</strong> ${data.tdp}</p>
+        <p><strong>Lanzamiento:</strong> ${data.release}</p>
+        <p>${data.note}</p>
+      `;
+
+      if (btn) {
+        // Mostrar la tarjeta de info justo debajo del .model correspondiente
+        let parent = btn.closest('.model');
+        if (!parent) return;
+        // buscar existente
+        let card = parent.querySelector('.info-card');
+        if (!card) {
+          card = document.createElement('div');
+          card.className = 'info-card';
+          parent.appendChild(card);
+        }
+        card.innerHTML = html;
+        // desplazar la vista hacia la tarjeta (opcional)
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        // comportamiento antiguo: mostrar en panel fijo #info
+        const info = document.getElementById('info');
+        info.innerHTML = html;
+      }
+    }
+
+    function limpiarInfo(btn) {
+      if (btn) {
+        // si se pasa el botón, eliminar la tarjeta más cercana dentro del padre
+        let parent = btn.parentElement;
+        if (!parent) parent = document.body;
+        const card = parent.querySelector('.info-card');
+        if (card) parent.removeChild(card);
+        return;
+      }
+
+      // si no hay botón, limpiar todas las tarjetas y el panel fijo
+      const cards = document.querySelectorAll('.info-card');
+      cards.forEach(c => c.parentElement && c.parentElement.removeChild(c));
+      const info = document.getElementById('info');
+      if (info) info.innerHTML = '';
+    }
+  </script>
+</body>
+</html>
